@@ -5,20 +5,8 @@ Created on Mon Aug 16 09:30:42 2021
 @author: DELL_04
 """
 def anguarvelocityDetecter(vec,veclen):
-    vec1 = vec['Day 1'].dropna()
-    vec2 = vec['Day 2'].dropna()
-    vec3 = vec['Day 3'].dropna()
-    vec4 = vec['Day 4'].dropna()
-    vec5 = vec['Day 5'].dropna()
-    vec6 = vec['Testing'].dropna()
-    vecs = [vec1,vec2,vec3,vec4,vec5,vec6]
-    veclen1 = veclen['Day 1'].dropna()
-    veclen2 = veclen['Day 2'].dropna()
-    veclen3 = veclen['Day 3'].dropna()
-    veclen4 = veclen['Day 4'].dropna()
-    veclen5 = veclen['Day 5'].dropna()
-    veclen6 = veclen['Testing'].dropna()
-    veclens = [veclen1,veclen2,veclen3,veclen4,veclen5,veclen6]
+    vecs = [vec['Day '+str(i)].dropna() for i in range(1,6)].append(vec['Testing'].dropna())
+    veclens= [veclen['Day '+str(i)].dropna() for i in range(1, 6)].append(veclen['Testing'].dropna())
    
     cosangles = [
                [np.dot(vec.iloc[i],vec.iloc[i+1])/(veclen[i]*veclen[i+1])
